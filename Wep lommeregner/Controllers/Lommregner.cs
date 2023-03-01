@@ -6,7 +6,7 @@ namespace Wep_lommeregner.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Lommregner : ControllerBase
+    public class Lommeregner : ControllerBase
     {
         [HttpPost(Name = "Calculate2")]
         public string Post(string regnestykke)

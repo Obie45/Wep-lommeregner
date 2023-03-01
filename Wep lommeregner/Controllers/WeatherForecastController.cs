@@ -29,7 +29,7 @@ namespace Wep_lommeregner.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
-        }
+        }   
         [HttpPost(Name = "Calculate")]
         public string Post(string regnestykke)
         {

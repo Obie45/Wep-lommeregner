@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Result</title>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script>
+        function getresult() {
+            $.ajax({
+                url: "/api/KahootMain/Result",
+                type: "GET",
+                cache: false,
+                error: function (request, status, error) {
+                    alert(request.responseText);
+                },
+                success: function (data) {
+                    $("#textScore").text(data);
+
+                }
+            });
+        };
+    </script>
+</head>
+<body onload="getresult();">
+
+
+    <div>Result</div><br/>
+
+        <div>
+            <div class="result">Score: </div>
+            <div class=" score"></div>
+        </div>
+
+    <a class="answerbutton" href="Index.html">Try again</a>
+    
+</body>
+</html>
