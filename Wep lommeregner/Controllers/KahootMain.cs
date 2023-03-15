@@ -15,8 +15,12 @@ namespace Wep_lommeregner.Controllers
 
             if(id == 0)
             {
-                //reset question
+                //reset questionc and points
                 GlobalData.QuestionNumber = 0;
+                GlobalData.Points = 0;
+                //maketime!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+              
+
             }
             else
             {
@@ -25,7 +29,11 @@ namespace Wep_lommeregner.Controllers
                 if (id== correstAnswer)
                 {
                     //give points
-                    GlobalData.Points = GlobalData.Points + 500;
+                    var diff = DateTime.Now - GlobalData.Time;
+                    var scc = diff.TotalSeconds;
+                    GlobalData.Points = GlobalData.Points + Math.Round(4500/scc) + 500;
+
+                    //+ TID !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
 
                 //add 1 to index
@@ -35,8 +43,7 @@ namespace Wep_lommeregner.Controllers
             //flyt data
             ReturnPointAndQuestion returnPointAndQuestion = new ReturnPointAndQuestion();
             //...
-            //////returnPointAndQuestion.Question = GlobalData.Questions[GlobalData.QuestionNumber];
-            //////returnPointAndQuestion.Points = GlobalData.Points;
+
 
 
             if (GlobalData.QuestionNumber == GlobalData.Questions.Count)
@@ -52,25 +59,15 @@ namespace Wep_lommeregner.Controllers
                 returnPointAndQuestion.Points = GlobalData.Points;
             }
 
-
+            GlobalData.Time = DateTime.Now;
             return returnPointAndQuestion;
-            //Question question = new Question();
-            //question.Id = 1;
-            //question.QuestionText = "Hvor langt væk er månen?";
-            //question.Answer1Text = "210 000";
-            //question.Answer2Text = "380 000";
-            //question.CorrectAnswer = 2;
-
-
-            //Question question = GlobalData.Questions[GlobalData.QuestionNumber];
-            //return question;
 
 
             }
-
+            
         [HttpGet("Result")]
 
-        public decimal Result()
+        public double Result()
         {
             return GlobalData.Points;
         }

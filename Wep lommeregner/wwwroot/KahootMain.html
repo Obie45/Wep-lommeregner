@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="Style/StyleSheet.css">
 
     <script>
+        
+        function starttimer() {
+                
+        }
         function sendtoserver(id) {
 
             xurl = "/api/KahootMain?id=" + id
@@ -23,10 +27,12 @@
                     if (data.question.questionText == "NO MORE") {
                         window.location.href = "Result.html"
                     }
-                    //alert(data);
+                   
                     $("#textQuestion").text(data.question.questionText);
                     $("#textAnswer1").text(data.question.answer1Text);
                     $("#textAnswer2").text(data.question.answer2Text);
+                    $("#textAnswer3").text(data.question.answer3Text);
+                    $("#textAnswer4").text(data.question.answer4Text);
                     $("#points").text(data.points);
                     
                 }
@@ -37,12 +43,16 @@
 
 </head>
 
+
 <body onload="sendtoserver(0)">
+   
     
     <div>
         <div class="question" id="textQuestion">Question</div><br />
         <div onclick="sendtoserver(1)" class="answerbutton" id="textAnswer1">Answer1</div>
         <div onclick="sendtoserver(2)" class="answerbutton" id="textAnswer2">Answer2</div>
+        <div onclick="sendtoserver(3)" class="answerbutton" id="textAnswer3">Answer3</div>
+        <div onclick="sendtoserver(4)" class="answerbutton" id="textAnswer4">Answer4</div>
         <div id="points">Points</div>
     </div>
 

@@ -15,9 +15,12 @@
                     alert(request.responseText);
                 },
                 success: function (data) {
-                    $("#textScore").text(data);
+                   
+                    $("#textScore").text(data)
+                    
 
                 }
+               
             });
         };
     </script>
@@ -25,14 +28,18 @@
 <body onload="getresult();">
 
 
-    <div>Result</div><br/>
+    <div>Result</div><br />
 
-        <div>
-            <div class="result">Score: </div>
-            <div class=" score"></div>
-        </div>
+    <div>
+        <div class="result">Score: </div>
+        <div class="score" id="textScore">e</div>
+    </div>
 
-    <a class="answerbutton" href="Index.html">Try again</a>
+    <a class="answerbutton" href="KahootMain.html">Try again</a>
+    <br />
+    <p></p>
+    <a class="answerbutton" href="Index.html">Leave</a>
+
     
 </body>
 </html>
